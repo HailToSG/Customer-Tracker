@@ -13,7 +13,7 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-       <context:component-scan base-package="com.itc"/>
+       <context:component-scan base-package="com.itc.customertracker"/>
        <mvc:annotation-driven/>
 
        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,21 +26,21 @@
        </bean>
 
        <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-              <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+              <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
               <property name="jdbcUrl"
-                        value="jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false?serverTimezone=UTC"/>
+                        value="jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC"/>
               <property name="user" value="springstudent"/>
               <property name="password" value="springstudent"/>
 
               <!--connection pool properties for C3P0-->
-              <property name="minPoolSize" value="5"/>
+              <property name="minPoolSize" value="1"/>
               <property name="maxPoolSize" value="30"/>
-              <property name="maxIdleTime" value="30000"/>
+              <property name="maxIdleTime" value="50000"/>
         </bean>
 
        <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
               <property name="dataSource" ref="myDataSource"/>
-              <property name="packagesToScan" value="com.itc.entity"/>
+              <property name="packagesToScan" value="com.itc.customertracker.entity"/>
               
               <property name="hibernateProperties">
                      <props>
