@@ -1,4 +1,4 @@
-package com.itc.customertracker.com.itc.customertracker.dao;
+package com.itc.customertracker.dao;
 
 import com.itc.customertracker.entity.Customer;
 

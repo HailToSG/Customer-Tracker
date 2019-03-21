@@ -1,4 +1,4 @@
-package com.itc.customertracker.com.itc.customertracker.dao;
+package com.itc.customertracker.dao;
 
 import com.itc.customertracker.entity.Customer;
 import org.hibernate.Session;
@@ -15,13 +15,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     private Session session;
 
     @Autowired
-    public CustomerDAOImpl(SessionFactory sessionFactory) {
-        session = sessionFactory.getCurrentSession();
-    }
+    SessionFactory sessionFactory;
 
     @Override
     @Transactional
     public List<Customer> getCustomers() {
+        session = sessionFactory.getCurrentSession();
         Query<Customer> customerQuery = session.createQuery("from Customer", Customer.class);
         return customerQuery.getResultList();
     }
