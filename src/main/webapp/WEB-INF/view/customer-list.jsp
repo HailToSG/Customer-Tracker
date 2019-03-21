@@ -2,7 +2,10 @@
 
 <!DOCTYPE html>
 <html>
-<head><title>There are list of customers!</title></head>
+<head>
+    <title>There are list of customers!</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+</head>
 <body>
 
 
