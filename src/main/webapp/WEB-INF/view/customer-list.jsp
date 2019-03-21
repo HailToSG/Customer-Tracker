@@ -14,14 +14,14 @@
         <h2>CRM -   Customer Relationship Manager!</h2>
     </div>
 </div>
-<div id ="content">
+<div id ="container">
+    <div id="content"/>
     <table>
         <tr><th>First name</th><th>Second name</th><th>Email</th></tr>
         <c:forEach var="tempCustomer" items="${customers}">
             <tr><td>${tempCustomer.firstName}</td><td>${tempCustomer.lastName}</td><td>${tempCustomer.eMail}</td></tr>
         </c:forEach>
     </table>
-
 </div>
 
 
