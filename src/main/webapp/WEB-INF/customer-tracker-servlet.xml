@@ -21,9 +21,6 @@
               <property name="suffix" value=".jsp"/>
        </bean>
 
-       <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-              <property name="basenames" value="messages"/>
-       </bean>
 
        <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
               <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
@@ -53,7 +50,8 @@
               <property name="sessionFactory" ref="sessionFactory"/>
        </bean>
 
-       <tx:annotation-driven transaction-manager="transactionManager"/>
+       <tx:annotation-driven/>
+       <mvc:resources mapping="/resources/**" location="/resources/"/>
 
 
 </beans>
