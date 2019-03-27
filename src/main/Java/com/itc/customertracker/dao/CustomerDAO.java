@@ -10,9 +10,9 @@ public interface CustomerDAO {
 
     void saveCustomer(Customer customer);
 
-    Customer getCustomerById(Integer id);
+    Customer getCustomerById(int id);
 
     void updateCustomer(Customer customer);
 
-    void deleteCustomer(Customer customer);
+    void deleteCustomer(int id);
 }

@@ -33,7 +33,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Customer getCustomerById(Integer id) {
+    public Customer getCustomerById(int id) {
         Session session = getSession();
         return session.get(Customer.class, id);
     }
@@ -45,9 +45,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public void deleteCustomer(Customer customer) {
+    public void deleteCustomer(int id) {
         Session session = getSession();
-        session.delete(customer);
+        Query query = session.createQuery("delete from Customer where id=:customerId");
+        query.setParameter("customerId", id);
+        query.executeUpdate();
     }
 
     private Session getSession(){

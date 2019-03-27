@@ -15,7 +15,7 @@
     </div>
 </div>
 <div id ="container">
-    <h3>Save</h3>
+    <h3>Update</h3>
     <form:form action="updateCustomer" modelAttribute="customer" method="post">
         <form:hidden path="id"/>
         <table>
