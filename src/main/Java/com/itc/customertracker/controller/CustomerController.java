@@ -52,4 +52,10 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
+    @RequestMapping("/deleteCustomer")
+    public String deleteCustomer (@RequestParam("customerId") Integer id){
+        customerService.deleteCustomer(customerService.getCustomerById(id));
+        return "redirect:/customer/list";
+    }
+
 }
