@@ -33,7 +33,10 @@
             </c:url>
             <tr>
                 <td>${tempCustomer.firstName}</td><td>${tempCustomer.lastName}</td><td>${tempCustomer.eMail}</td>
-                <td><a href="${updateLink}">Update</a>|<a href="${deleteLink}">Delete</a></td>
+                <td><a href="${updateLink}">Update</a>
+                    |
+                    <a href="${deleteLink}" onclick="if (!(confirm('Вы уверены?')))return false">Delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
