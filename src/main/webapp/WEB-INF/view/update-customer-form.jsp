@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,7 @@
 <div id ="container">
     <h3>Save</h3>
     <form:form action="updateCustomer" modelAttribute="customer" method="post">
+        <form:hidden path="id"/>
         <table>
             <tbody>
                 <tr>
@@ -35,7 +37,7 @@
 
                 <tr>
                     <td><label/></td>
-                    <td><input type="submit" value="Save" class="save"/>
+                    <td><input type="submit" value="Update" class="save"/>
                     <input type="button" value="Cancel"
                                onclick="window.location.href='list'; return false;"
                                class="backLink"/></td>

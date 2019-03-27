@@ -5,10 +5,7 @@ import com.itc.customertracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,8 +34,7 @@ public class CustomerController {
     }
 
     @GetMapping("/showUpdateCustomerForm")
-    public String showUpdateCustomerForm(Model model){
-        Integer id = 1;
+    public String showUpdateCustomerForm(Model model, @RequestParam("customerId") Integer id){
         Customer customer = customerService.getCustomerById(id);
         model.addAttribute("customer", customer);
         return "update-customer-form";
@@ -46,8 +42,14 @@ public class CustomerController {
 
     @PostMapping("/saveCustomer")
     public String saveCustomer(@ModelAttribute("customer") Customer newCustomer){
-        customerService.addCustomer(newCustomer);
-        return "redirect:list";
+        customerService.saveCustomer(newCustomer);
+        return "redirect:/customer/list";
+    }
+
+    @PostMapping("/updateCustomer")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer){
+        customerService.updateCustomer(customer);
+        return "redirect:/customer/list";
     }
 
 }
