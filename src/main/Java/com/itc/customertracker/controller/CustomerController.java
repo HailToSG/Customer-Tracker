@@ -36,10 +36,17 @@ public class CustomerController {
         return "add-customer-form";
     }
 
+    @GetMapping("/showUpdateCustomerForm")
+    public String showUpdateCustomerForm(Model model){
+        Integer id = 1;
+        Customer customer = customerService.getCustomerById(id);
+        model.addAttribute("customer", customer);
+        return "update-customer-form";
+    }
+
     @PostMapping("/saveCustomer")
     public String saveCustomer(@ModelAttribute("customer") Customer newCustomer){
         customerService.addCustomer(newCustomer);
-
         return "redirect:list";
     }
 

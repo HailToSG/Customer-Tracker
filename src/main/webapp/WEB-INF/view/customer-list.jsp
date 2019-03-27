@@ -21,9 +21,12 @@
         class="add-button"
     />
     <table>
-        <tr><th>First name</th><th>Second name</th><th>Email</th></tr>
+        <tr><th>First name</th><th>Second name</th><th>Email</th><th>Action</th></tr>
         <c:forEach var="tempCustomer" items="${customers}">
-            <tr><td>${tempCustomer.firstName}</td><td>${tempCustomer.lastName}</td><td>${tempCustomer.eMail}</td></tr>
+            <tr>
+                <td>${tempCustomer.firstName}</td><td>${tempCustomer.lastName}</td><td>${tempCustomer.eMail}</td>
+                <td><a  href="${pageContext.request.contextPath}/customer/showUpdateCustomerForm">Update</a></td>
+            </tr>
         </c:forEach>
     </table>
 </div>
