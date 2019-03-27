@@ -12,15 +12,16 @@ import java.util.List;
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
-    private Session session;
+    private SessionFactory sessionFactory;
 
     @Autowired
-    SessionFactory sessionFactory;
+    public CustomerDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
-        session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query<Customer> customerQuery = session.createQuery("from Customer", Customer.class);
         return customerQuery.getResultList();
     }
