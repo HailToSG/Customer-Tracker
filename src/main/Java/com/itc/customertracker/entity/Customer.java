@@ -19,6 +19,14 @@ public class Customer {
     @Column(name = "email")
     private String eMail;
 
+    public Customer(){}
+
+    public Customer(String firstName, String lastName, String eMail) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.eMail = eMail;
+    }
+
     public int getId() {
         return id;
     }

@@ -11,11 +11,15 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>CRM -   Customer Relationship Manager!</h2>
+        <h2>CRM - Customer Relationship Manager!</h2>
     </div>
 </div>
 <div id ="container">
     <div id="content"/>
+    <input type="button" value="Add Customer"
+        onclick="window.location.href='showAddForm'; return false;"
+        class="add-button"
+    />
     <table>
         <tr><th>First name</th><th>Second name</th><th>Email</th></tr>
         <c:forEach var="tempCustomer" items="${customers}">

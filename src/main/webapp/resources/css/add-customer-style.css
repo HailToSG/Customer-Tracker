@@ -14,18 +14,27 @@ label {
 
 input {
 	width: 250px;
-	border: 1px solid #666; 
+	border: 1px solid #667;
 	border-radius: 5px; 
-	padding: 4px; 
+	padding: 5px;
 	font-size: 16px;
 }
 
 .save {
 	font-weight: bold;
-	width: 130px; 
+	width: 128px;
 	padding: 5px 10px; 
-	margin-top: 30px;
+	margin-top: 15px;
 	background: #cccccc;
+}
+
+.backLink {
+	font-weight: bold;
+	width: 128px;
+	padding: 5px 10px;
+	margin-top: 15px;
+	background: #cccccc;
+
 }
 
 table {   
